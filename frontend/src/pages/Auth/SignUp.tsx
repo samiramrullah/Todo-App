@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
-import loginImage from "../../assets/login-image.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import loginImage from "../../assets/login-image.jpg";
 const SignUp = () => {
   interface signUpDataInterface {
     name: String;
@@ -18,8 +20,16 @@ const SignUp = () => {
   }
   const onSubmitHandler=(e:React.FocusEvent<HTMLFormElement>)=>{
       e.preventDefault();
-      console.log(signUpData);
-      
+      axios.post(`${process.env.REACT_APP_API_KEY}user/register`,signUpData)
+      .then((res)=>{
+        if(res.data.status)
+          {
+             toast.success(res.data.message,{position:'top-right'})
+          }
+      })
+      .catch((err) => {
+        toast.error(err?.response?.data?.message, { position: "top-right" });
+      });
   }
   return (
     <>
@@ -32,7 +42,7 @@ const SignUp = () => {
                 <img
                   className="absolute inset-0 z-0 object-contain w-full h-full ml-auto"
                   src={loginImage}
-                  alt="Mamta Nepal"
+                  alt="ToDo App"
                 />
                 <div className="top-0 z-10 max-w-xl mx-auto mb-12 text-center ">
                   <h2 className="mb-4 text-4xl font-bold text-gray-100  ">
@@ -80,7 +90,7 @@ const SignUp = () => {
                       <div>
                         <label className="text-lg font-medium ">Name:</label>
                         <input
-                          type="email"
+                          type="text"
                           className="w-full px-4 py-3 mt-3 bg-gray-200 rounded-lg   "
                           name="name"
                           required
@@ -159,6 +169,7 @@ const SignUp = () => {
           </div>
         </div>
       </section>
+      <ToastContainer/>
     </>
   );
 };

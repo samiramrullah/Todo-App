@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 import loginImage from "../../assets/login-image.jpg";
+import axios from "axios";
 const Login = () => {
     interface LoginDataInterface{
         email:String,
@@ -16,7 +18,17 @@ const Login = () => {
     }
     const onSubmitHandler=(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
-        alert(loginData)
+        axios.post(`${process.env.REACT_APP_API_KEY}user/login`,loginData)
+        .then((res)=>{
+          if(res.data.status)
+            {
+               toast.success(res.data.message,{position:'top-right'})
+               localStorage.setItem('token',res.data.token)
+            }
+        })
+        .catch((err) => {
+          toast.error(err?.response?.data?.message, { position: "top-right" });
+        });
     }
   return (
     <>
@@ -145,6 +157,7 @@ const Login = () => {
           </div>
         </div>
       </section>
+      <ToastContainer/>
     </>
   );
 };
