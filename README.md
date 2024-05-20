@@ -1,4 +1,6 @@
 # ToDo Application
+This is full stack web todo application
+developed in <b>MEARN</b> technology
 # Frontend
 
 ## Technplogies Used
