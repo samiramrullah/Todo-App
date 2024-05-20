@@ -1,0 +1,225 @@
+{
+	"item": [
+		{
+			"name": "UserManagement",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Samir Alam\",\n    \"email\":\"samir2@gmail.com\",\n    \"password\":\"Samir@786\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://todo-app-y5iq.onrender.com/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Samir Alam\",\n    \"email\":\"samir2@gmail.com\",\n    \"password\":\"Samir@786\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://todo-app-y5iq.onrender.com/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "addTask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ5ZmQyZTU5MmRmZTc5MTc5ODMzYWEiLCJlbWFpbCI6InNhbWlyMkBnbWFpbC5jb20iLCJuYW1lIjoiU2FtaXIgQWxhbSIsImlhdCI6MTcxNjE4MDA2OX0.ZYvg-Qht5R0GgkuNtSviWH8JRy6KjYsu9hJTJLcpNgE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Have Dinner\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://todo-app-y5iq.onrender.com/api/task/addtask",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task",
+								"addtask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getalltask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ5ZmQyZTU5MmRmZTc5MTc5ODMzYWEiLCJlbWFpbCI6InNhbWlyMkBnbWFpbC5jb20iLCJuYW1lIjoiU2FtaXIgQWxhbSIsImlhdCI6MTcxNjE4MDA2OX0.ZYvg-Qht5R0GgkuNtSviWH8JRy6KjYsu9hJTJLcpNgE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://todo-app-y5iq.onrender.com/api/task/getalltask",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task",
+								"getalltask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ5ZmQyZTU5MmRmZTc5MTc5ODMzYWEiLCJlbWFpbCI6InNhbWlyMkBnbWFpbC5jb20iLCJuYW1lIjoiU2FtaXIgQWxhbSIsImlhdCI6MTcxNjE4MDA2OX0.ZYvg-Qht5R0GgkuNtSviWH8JRy6KjYsu9hJTJLcpNgE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"664ad690cfa984b221f19a33\",\n    \"name\":\"Sell Laptop\",\n    \"isDone\":false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://todo-app-y5iq.onrender.com/api/task/updatetask",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task",
+								"updatetask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletetask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ5ZmQyZTU5MmRmZTc5MTc5ODMzYWEiLCJlbWFpbCI6InNhbWlyMkBnbWFpbC5jb20iLCJuYW1lIjoiU2FtaXIgQWxhbSIsImlhdCI6MTcxNjE4MDA2OX0.ZYvg-Qht5R0GgkuNtSviWH8JRy6KjYsu9hJTJLcpNgE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"664ae8107e62b8115cf9fec1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://todo-app-y5iq.onrender.com/api/task/deletetask",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task",
+								"deletetask"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
