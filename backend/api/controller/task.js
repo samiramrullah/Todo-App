@@ -42,8 +42,11 @@ exports.getalltask=async(req,res,next)=>{
 exports.updatetask=async(req,res,next)=>{
       try {
         const {name,isDone,_id}=req.body;
-        if(!name || !id) return res.status(400).json({status:false,message:"Invalid Data"});
-        const updatedTask=await taskSchema.findOneAndUpdate({_id:id},{name:name,isDone:isDone},{new:true})
+        if(!_id) return res.status(400).json({status:false,message:"Invalid Data"});
+        let updatedFiled={}
+        if(name) updatedFiled.name=name;
+        if(isDone ==true || isDone==false) updatedFiled.isDone=isDone;
+        const updatedTask=await taskSchema.findOneAndUpdate({_id:_id},updatedFiled,{new:true})
         if(updatedTask) return res.status(200).json({status:true,message:"Task Successfully Updated",updatedTask})
         return res.status(404).json({ status: false, message: "Task not found" });
       } catch (error) {
