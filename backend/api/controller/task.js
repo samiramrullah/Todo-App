@@ -27,6 +27,15 @@ exports.getalltask=async(req,res,next)=>{
     try {
         const userId=req.userData.userId;
         const tasks=await taskSchema.find({userId:userId}).select("_id name isDone")
+        tasks.sort((taskA, taskB) => {
+            if (taskA.isDone === false && taskB.isDone === true) {
+                return -1; // taskA should come before taskB
+            } else if (taskA.isDone === true && taskB.isDone === false) {
+                return 1; // taskB should come before taskA
+            } else {
+                return 0; // no change in order
+            }
+        });
         res.status(200).json({
             status:true,
             message:"Tasks Successfully Fetched",

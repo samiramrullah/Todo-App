@@ -16,7 +16,6 @@ const Taskcard = ({name,_id,isDone,fetchData}:TaskProps) => {
     .then((res)=>{
       if(res?.data?.status)
         {
-           toast.success(res.data.message,{position:'top-right'})
            fetchData();
         }
     })

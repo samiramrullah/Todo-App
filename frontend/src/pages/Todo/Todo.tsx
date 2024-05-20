@@ -77,7 +77,7 @@ const Todo = () => {
             </button>
           </div>
         </form>
-        <ul className="divide-y divide-gray-200 px-4">
+        <ul className="divide-y divide-gray-200 px-4 max-h-96 overflow-y-scroll">
           {allTask?.map(task=>(
             <Taskcard name={task.name} _id={task._id} isDone={task.isDone} fetchData={fetchData}/>
           ))}
