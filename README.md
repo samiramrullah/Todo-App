@@ -17,3 +17,6 @@ developed in <b>MEARN</b> technology
 
 It is deployed on render https://todo-app-y5iq.onrender.com/
 The api for the application can be found in Json file attached.
+
+
+# Demo Available at https://samirtodo.netlify.app/
