@@ -8,7 +8,8 @@ require('dotenv').config();
 app.use(morgan('dev'));
 
 //Routes
-const registerRoute=require('./api/Routes/userManagement/auth')
+const userRoute=require('./api/Routes/userManagement/auth')
+const taskRoute=require('./api/Routes/Todo/task')
 
 // database connection
 mongooge.connect(process.env.connectionString)
@@ -31,7 +32,8 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
-app.use('/api/user/',registerRoute)
+app.use('/api/user/',userRoute);
+app.use('/api/task/',taskRoute)
 
 
 //Error Hadling
