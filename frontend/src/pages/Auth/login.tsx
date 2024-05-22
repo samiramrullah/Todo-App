@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import loginImage from "../../assets/login-image.jpg";
 import axios from "axios";
@@ -8,6 +8,7 @@ const Login = () => {
         email:String,
         password:String
     }
+    const navigate=useNavigate();
     const [loginData,setLoginData]=useState<LoginDataInterface>({ email: "", password: "" })
     const onChangeHandler=(e:React.ChangeEvent<HTMLInputElement>)=>{
         const {name,value}=e.target;
@@ -23,7 +24,8 @@ const Login = () => {
           if(res.data.status)
             {
                toast.success(res.data.message,{position:'top-right'})
-               localStorage.setItem('token',res.data.token)
+               localStorage.setItem('token',res.data.token);
+               navigate('/todo')
             }
         })
         .catch((err) => {
